@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+  namespace: sajid
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-name: "sajid-lb"
+  # annotations:
+  #   service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
+  #   service.beta.kubernetes.io/do-loadbalancer-sticky-sessions-type: "cookies"
+  #   service.beta.kubernetes.io/do-loadbalancer-sticky-sessions-cookie-name: "example"
+  #   service.beta.kubernetes.io/do-loadbalancer-sticky-sessions-cookie-ttl: "60"
+  # labels:
+  #   app: nginx
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+    - targetPort: 80
+      port: 80
+  selector:
+    hat: red

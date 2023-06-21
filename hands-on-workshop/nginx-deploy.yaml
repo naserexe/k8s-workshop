@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  namespace: sajid
+spec:
+  selector:
+    matchLabels:
+      hat: red
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        hat: red
+    spec:
+      containers:
+      - name: nginx-foo
+        image: nginxdemos/hello
+        # ports:

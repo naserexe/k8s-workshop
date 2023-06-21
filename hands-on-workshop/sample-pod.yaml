@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  namespace: sajid
+  # labels:
+  #   app: nginx
+  #   app2: nginx
+  #   app3: nginx
+spec:
+  containers:
+    - name: nginx-foo
+      image: nginx
